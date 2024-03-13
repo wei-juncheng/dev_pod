@@ -7,9 +7,10 @@ spec:
   generators:
     - git:
         repoURL: 'https://github.com/wei-juncheng/dev_pod.git'
-        revision: HEAD
+        revision: main
         directories:
           - path: "charts/*"
+        requeueAfterSeconds: 20 # Checks for changes every 20sec (default 3min)
   template:
     metadata:
       name: '{{path.basename}}'
@@ -17,7 +18,7 @@ spec:
       project: default
       source:
         repoURL: 'https://github.com/wei-juncheng/dev_pod.git'
-        targetRevision: HEAD
+        targetRevision: main
         chart: '{{path.basename}}'
         helm:
           values: |
