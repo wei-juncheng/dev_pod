@@ -6,7 +6,7 @@ metadata:
 spec:
   generators:
     - git:
-        repoURL: 'https://github.com/yourusername/yourrepository.git'
+        repoURL: 'https://github.com/wei-juncheng/dev_pod.git'
         revision: HEAD
         directories:
           - path: "charts/*"
@@ -16,7 +16,7 @@ spec:
     spec:
       project: default
       source:
-        repoURL: 'https://github.com/yourusername/yourrepository.git'
+        repoURL: 'https://github.com/wei-juncheng/dev_pod.git'
         targetRevision: HEAD
         chart: '{{path.basename}}'
         helm:
