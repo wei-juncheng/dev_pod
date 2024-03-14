@@ -6,9 +6,13 @@ spec:
   replicas: 1
   strategy:
     type: Recreate
+  selector:
+    matchLabels:
+      {{- include "dev-pod.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       labels:
+        app: nfs-client-provisioner
         {{- include "dev-pod.selectorLabels" . | nindent 8 }}
     spec:
       serviceAccountName: nfs-client-provisioner
