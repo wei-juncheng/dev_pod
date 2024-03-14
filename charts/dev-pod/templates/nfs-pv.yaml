@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: nfs-pv
+spec:
+  capacity:
+    storage: {{ .Values.nfs.storageSize }}
+  accessModes:
+    - ReadWriteMany
+  nfs:
+    path: {{ .Values.nfs.path }}
+    server: {{ .Values.nfs.server }}
+  persistentVolumeReclaimPolicy: Recycle

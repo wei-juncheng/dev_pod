@@ -80,3 +80,10 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+nfs:
+  server: nas4.wasnlab.net
+  path: /volume1/DGX_NFS/dev_pod_nfs
+  storageSize: 5Gi
+
+NFSvolumeMountPath: /nfs
