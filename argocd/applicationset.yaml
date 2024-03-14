@@ -20,6 +20,8 @@ spec:
         automated:
           prune: true
           selfHeal: false
+        syncOptions:
+        - CreateNamespace=true
       source:
         repoURL: 'https://github.com/wei-juncheng/dev_pod'
         path: charts/dev-pod
@@ -32,6 +34,8 @@ spec:
             value: '{{ replicaCount }}'
           - name: image.repository
             value: '{{ components.dev_env.image.repository }}'
+          - name: image.tag
+            value: '{{ components.dev_env.image.tag }}'
       destination:
         server: 'https://kubernetes.default.svc'
-        namespace: argocd
+        namespace: '{{ namespace }}'
