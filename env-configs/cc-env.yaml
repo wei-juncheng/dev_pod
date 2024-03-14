@@ -5,5 +5,5 @@ replicaCount: 2
 components:
   dev_env:
     image:
-      repository: python
-      tag: 3.8
+      repository: nginx
+      tag: 1.25.4
