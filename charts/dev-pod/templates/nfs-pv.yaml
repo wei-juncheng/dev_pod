@@ -6,7 +6,7 @@ spec:
   capacity:
     storage: {{ .Values.nfs.storageSize }}
   accessModes:
-    - ReadWriteOnce
+    - ReadWriteMany
   nfs:
     path: {{ .Values.nfs.path }}
     server: {{ .Values.nfs.server }}
