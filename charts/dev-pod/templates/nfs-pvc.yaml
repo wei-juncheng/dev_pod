@@ -1,7 +1,10 @@
-apiVersion: v1
+---
 kind: PersistentVolumeClaim
+apiVersion: v1
 metadata:
-  name: nfs-pvc
+  name: test-claim
+  annotations:
+    volume.beta.kubernetes.io/storage-class: "my-nfs-storage"
 spec:
   accessModes:
     - ReadWriteMany
