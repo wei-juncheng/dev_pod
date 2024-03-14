@@ -9,7 +9,6 @@ spec:
   template:
     metadata:
       labels:
-        app: nfs-client-provisioner
         {{- include "dev-pod.selectorLabels" . | nindent 8 }}
     spec:
       serviceAccountName: nfs-client-provisioner
