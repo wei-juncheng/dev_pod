@@ -9,20 +9,29 @@ spec:
         repoURL: 'https://github.com/wei-juncheng/dev_pod.git'
         revision: main
         directories:
-          - path: "charts/*"
+          - path: "env-configs/*.yaml"
         requeueAfterSeconds: 20 # Checks for changes every 20sec (default 3min)
   template:
     metadata:
-      name: '{{path.basename}}'
+      name: '{{path.basename}}-{{ namespace }}'
     spec:
       project: default
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: false
       source:
-        repoURL: 'https://github.com/wei-juncheng/dev_pod.git'
-        targetRevision: main
-        chart: '{{path.basename}}'
+        repoURL: 'https://github.com/wei-juncheng/dev_pod'
+        path: charts/dev-pod
+        targetRevision: HEAD
         helm:
-          values: |
-            {{values | toYaml | indent 2}}
+          valueFiles:
+          - values.yaml
+          parameters:
+          - name: replicaCount
+            value: '{{ replicaCount }}'
+          - name: image.repository
+            value: '{{ components.dev_env.image.repository }}'
       destination:
         server: 'https://kubernetes.default.svc'
-        namespace: '{{path.basename}}'
+        namespace: argocd

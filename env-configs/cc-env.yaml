@@ -1,0 +1,8 @@
+description: 'castle k8s env'
+createdBy: castle.cheng
+namespace: cc-env
+components:
+  dev_env:
+    image:
+      repository: python
+      tag: 3.8
