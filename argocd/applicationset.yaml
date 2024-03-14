@@ -8,7 +8,7 @@ spec:
     - git:
         repoURL: 'https://github.com/wei-juncheng/dev_pod.git'
         revision: main
-        directories:
+        files:
           - path: "env-configs/*.yaml"
         requeueAfterSeconds: 20 # Checks for changes every 20sec (default 3min)
   template:
