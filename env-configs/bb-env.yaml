@@ -1,9 +1,0 @@
-description: 'castle k8s env'
-createdBy: castle.cheng
-namespace: bb-env
-replicaCount: 2
-components:
-  dev_env:
-    image:
-      repository: python
-      tag: 3.8

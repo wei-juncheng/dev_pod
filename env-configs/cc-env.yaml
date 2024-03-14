@@ -1,7 +1,7 @@
 description: 'castle k8s env'
 createdBy: castle.cheng
 namespace: cc-env
-replicaCount: 2
+replicaCount: 1
 components:
   dev_env:
     image:
