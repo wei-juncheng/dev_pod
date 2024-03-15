@@ -34,8 +34,6 @@ spec:
             value: '{{ replicaCount }}'
           - name: docker_image
             value: '{{ components.dev_env.docker_image }}'
-          - name: github_username
-            value: '{{ github_username }}'
       destination:
         server: 'https://kubernetes.default.svc'
         namespace: '{{ namespace }}'
