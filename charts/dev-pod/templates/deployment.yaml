@@ -33,6 +33,7 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.docker_image }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
+          command: ["tail", "-f", "/dev/null"]
           # ports:
           #   - name: http
           #     containerPort: {{ .Values.service.port }}
