@@ -84,4 +84,4 @@ nfs:
   path: /volume1/DGX_NFS/dev_pod_nfs
   storageSize: 5Gi
 
-NFSvolumeMountPath: /nfs
+NFSvolumeMountPath: /home/jovyan
