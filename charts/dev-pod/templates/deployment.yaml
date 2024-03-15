@@ -48,7 +48,7 @@ spec:
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           volumeMounts:
-          - name: nfs-pvc
+          - name: nfs-nas4
             mountPath: {{ .Values.NFSvolumeMountPath }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
@@ -63,6 +63,6 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       volumes:
-      - name: nfs-pvc
-        persistentVolumeClaim:
-          claimName: test-claim
+        - name: nfs-nas4
+          persistentVolumeClaim:
+            claimName: nfs-pvc
