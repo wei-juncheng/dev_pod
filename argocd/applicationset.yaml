@@ -32,10 +32,10 @@ spec:
           parameters:
           - name: replicaCount
             value: '{{ replicaCount }}'
-          - name: image.repository
-            value: '{{ components.dev_env.image.repository }}'
-          - name: image.tag
-            value: '{{ components.dev_env.image.tag }}'
+          - name: docker_image
+            value: '{{ components.dev_env.docker_image }}'
+          - name: github_username
+            value: '{{ github_username }}'
       destination:
         server: 'https://kubernetes.default.svc'
         namespace: '{{ namespace }}'

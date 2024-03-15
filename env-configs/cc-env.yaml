@@ -4,6 +4,4 @@ namespace: cc-env
 replicaCount: 1
 components:
   dev_env:
-    image:
-      repository: nginx
-      tag: 1.25.4
+    docker_image: jupyter/minimal-notebook:latest
