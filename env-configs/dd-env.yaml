@@ -1,0 +1,7 @@
+description: 'castle k8s env'
+createdBy: castle.cheng
+namespace: dd-env
+replicaCount: 1
+components:
+  dev_env:
+    docker_image: jupyter/docker-stacks-foundation:latest
