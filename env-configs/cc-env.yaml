@@ -4,4 +4,4 @@ namespace: cc-env
 replicaCount: 1
 components:
   dev_env:
-    docker_image: jupyter/minimal-notebook:latest
+    docker_image: jupyter/docker-stacks-foundation:latest
