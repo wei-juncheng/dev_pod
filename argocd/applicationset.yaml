@@ -34,6 +34,8 @@ spec:
             value: '{{ replicaCount }}'
           - name: docker_image
             value: '{{ components.dev_env.docker_image }}'
+          - name: namespace
+            value: '{{ namespace }}'
       destination:
         server: 'https://kubernetes.default.svc'
         namespace: '{{ namespace }}'
