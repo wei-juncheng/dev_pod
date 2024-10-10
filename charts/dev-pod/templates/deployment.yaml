@@ -33,7 +33,11 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.docker_image }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
-          command: ["tail", "-f", "/dev/null"]
+          command: ["/bin/sh", "-c"]
+          args:
+          - |
+            curl -fsSL https://code-server.dev/install.sh | sh && \
+            code-server --bind-addr 0.0.0.0:80
           ports:
           - name: http
             containerPort: {{ .Values.service.port }}
