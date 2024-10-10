@@ -1,0 +1,9 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: ip-whitelist
+  namespace: cc-env
+spec:
+  ipWhiteList:
+    sourceRange:
+      - "140.115.0.0/16"
