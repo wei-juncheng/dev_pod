@@ -47,9 +47,9 @@ ingress:
     # kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
   hosts:
-    - host: "dev-pod.wasnlab.net"
+    - host: "{CHANGEME}.dev-pod.wasnlab.net"
       paths:
-        - path: "/{CHANGEME}"
+        - path: "/"
           pathType: Prefix
   tls: []
   #  - secretName: chart-example-tls
