@@ -29,7 +29,7 @@ data:
 
     # Install code-server
     if curl -fsSL https://code-server.dev/install.sh | sh; then
-        code-server
+        code-server --bind-addr 0.0.0.0:80
     else
         tail -f /dev/null
     fi
