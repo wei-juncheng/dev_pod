@@ -33,11 +33,7 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.docker_image }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
-          command: ["/bin/sh", "-c"]
-          args:
-          - |
-            curl -fsSL https://code-server.dev/install.sh | sh && \
-            code-server --bind-addr 0.0.0.0:80
+          command: ["/bin/sh", "/startup.sh"]
           ports:
           - name: http
             containerPort: {{ .Values.service.port }}
@@ -45,6 +41,10 @@ spec:
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           volumeMounts:
+          - name: startup-script-volume
+            mountPath: /startup.sh
+            subPath: startup.sh
+            readOnly: true
           - name: nfs-nas4
             mountPath: {{ .Values.NFSvolumeMountPath }}
       {{- with .Values.nodeSelector }}
@@ -60,6 +60,10 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       volumes:
+        - name: startup-script-volume
+          configMap:
+            name: startup-script
+            defaultMode: 0755
         - name: nfs-nas4
           persistentVolumeClaim:
             claimName: nfs-pvc
