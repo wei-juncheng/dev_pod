@@ -34,10 +34,10 @@ spec:
           image: "{{ .Values.docker_image }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           command: ["tail", "-f", "/dev/null"]
-          # ports:
-          #   - name: http
-          #     containerPort: {{ .Values.service.port }}
-          #     protocol: TCP
+          ports:
+          - name: http
+            containerPort: {{ .Values.service.port }}
+            protocol: TCP
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           volumeMounts:

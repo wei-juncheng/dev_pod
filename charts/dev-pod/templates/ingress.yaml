@@ -33,11 +33,11 @@ spec:
   {{- end }}
   rules:
     {{- range .Values.ingress.hosts }}
-    - host: {{ .host | replace "{CHANGEME}" $namespace }}
+    - host: {{ .host }}
       http:
         paths:
           {{- range .paths }}
-          - path: {{ .path }}
+          - path: {{ .path | replace "{CHANGEME}" $namespace }}
             {{- if .pathType }}
             pathType: {{ .pathType }}
             {{- end }}
