@@ -43,7 +43,7 @@ ingress:
   enabled: true
   className: ""
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/whitelist-source-range: "140.115.0.0/16"
     # kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
   hosts:
@@ -88,5 +88,6 @@ nfs:
 
 NFSvolumeMountPath: /home/jovyan
 
-# controller:
-#   env:
+controller:
+  env:
+    PASSWORD: wasn
